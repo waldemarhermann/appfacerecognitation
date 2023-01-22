@@ -36,7 +36,7 @@ class App extends Component {
           type: 'visual-detector',
         }, this.state.input)
       .then(response => {
-        console.log('hi', response);
+        console.log(response.output[0].data.regions[0].region_info.bounding_box);
       })
       .catch(err => console.log(err));
   }
