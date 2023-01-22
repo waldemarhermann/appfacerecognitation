@@ -5,34 +5,40 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank.js/Rank';
 import ParticlesBg from 'particles-bg';
+import FaceRecognitation from './components/FaceRecognitation/FaceRecognitation';
 import Clarifai from 'clarifai';
 
 const app = new Clarifai.App({
-  apiKey: '07e9ec392e7f42ec9577848524ef4ead'
+  apiKey: 'dccf89db237d4a289a1e30ac87e105a4'
 })
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      input: ''
+      input: '',
+      imageUrl: ''
     }
   }
 
   onInputChange = (event) => {
-    console.log(event.target.value)
+    this.setState({ input: event.target.value })
   }
 
   onButtonSubmit = () => {
-    console.log('click');
+    this.setState({ imageUrl: this.state.input })
     app.models
-    .predict(
-      {
-        id: 'face-detection',
-        name: 'face-detection',
-        version: '6dc7e46bc9124c5c8824be4822abe105',
-        type: 'visual-detector',
-      }, this.state.input)
+      .predict(
+        {
+          id: 'face-detection',
+          name: 'face-detection',
+          version: '6dc7e46bc9124c5c8824be4822abe105',
+          type: 'visual-detector',
+        }, this.state.input)
+      .then(response => {
+        console.log('hi', response);
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -42,9 +48,8 @@ class App extends Component {
         <Navigation />
         <Logo />
         < Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
-        
-        {/* <FaceRecognitation /> */}
+        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+        <FaceRecognitation imageUrl={this.state.imageUrl} />
       </div>
     );
   }
