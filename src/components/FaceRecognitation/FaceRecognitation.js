@@ -1,7 +1,9 @@
 const FaceRecognitation = (props) => {
     return(
-        <div className="center">
-            <img src={props.imageUrl} alt="img" />
+        <div className="center ma">
+            <div className="absolute mt2">
+            <img src={props.imageUrl} alt="img" width='500px' height='auto' />
+            </div>
         </div>
     )
 }
