@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
+import Clarifai from 'clarifai';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank.js/Rank';
 import ParticlesBg from 'particles-bg';
 import FaceRecognitation from './components/FaceRecognitation/FaceRecognitation';
-import Clarifai from 'clarifai';
+
 
 const app = new Clarifai.App({
-  apiKey: 'dccf89db237d4a289a1e30ac87e105a4'
-})
+  apiKey: '0b013db8c6f54b9cb9cdd71222792be5'
+});
 
 class App extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    this.setState({box: box})
+    this.setState({ box: box })
   }
 
   onInputChange = (event) => {
@@ -51,7 +52,7 @@ class App extends Component {
           id: 'face-detection',
           name: 'face-detection',
           version: '6dc7e46bc9124c5c8824be4822abe105',
-          type: 'visual-detector',
+          type: 'visual-detector'
         }, this.state.input)
       .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
       .catch(err => console.log(err));
