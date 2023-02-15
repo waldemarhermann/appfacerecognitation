@@ -10,28 +10,29 @@ class Signin extends Component {
     }
 
     onEmailChange = (event) => {
-        this.setState({SignInEmail: event.target.value});
+        this.setState({ SignInEmail: event.target.value });
     }
 
     onPasswordChange = (event) => {
-        this.setState({SignInPassword: event.target.value})
+        this.setState({ SignInPassword: event.target.value })
     }
 
     onSubmitSignIn = () => {
-        fetch('http://localhost:3001/signin', {
+        fetch('https://faceapi-691r.onrender.com/signin', {
             method: 'post',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: this.state.SignInEmail,
                 password: this.state.SignInPassword
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            if(data === 'you are signed in') {
-                this.props.onRouteChange('home');
-            }
-        })
+            .then(response => response.json())
+            .then(user => {
+                if (user.id) {
+                    this.props.updateUser(user);
+                    this.props.onRouteChange('home');
+                }
+            })
     }
 
     render() {
@@ -43,22 +44,22 @@ class Signin extends Component {
                             <legend className="f2 fw6 ph0 mh0">Sign In</legend>
                             <div className="mt3">
                                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-                                <input 
-                                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-                                type="email" 
-                                name="email-address" 
-                                id="email-address" 
-                                onChange={this.onEmailChange}
+                                <input
+                                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                                    type="email"
+                                    name="email-address"
+                                    id="email-address"
+                                    onChange={this.onEmailChange}
                                 />
                             </div>
                             <div className="mv3">
                                 <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-                                <input 
-                                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-                                type="password" 
-                                name="password" 
-                                id="password" 
-                                onChange={this.onPasswordChange}
+                                <input
+                                    className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    onChange={this.onPasswordChange}
                                 />
                             </div>
                         </fieldset>
