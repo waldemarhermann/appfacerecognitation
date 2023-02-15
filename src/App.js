@@ -78,7 +78,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://faceapi-691r.onrender.com:3000/image', {
+          fetch('https://faceapi-691r.onrender.com/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
