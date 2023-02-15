@@ -24,7 +24,7 @@ class Register extends Component {
 
     onSubmitSignIn = () => {
         fetch('https://faceapi-691r.onrender.com/register', {
-            method: 'post',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: this.state.email,
