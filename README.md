@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+## About
+ This app can be used to register and log in, and once signed in, users can detect faces in images by utilizing Clarifai's API.Users can monitor their usage by uploading images and viewing the number of detected faces, as well as their overall image upload count. The application employs Node.js and PostgreSQL on the backend, and is built with React on the frontend. It incorporates user authentication, form validation, and database management through Knex.js.
+ 
+ 
+ *I'm currently experiencing issues with the connection between my backend server, which is hosted on Render.com and built with Express and Node.js, and my database. Although I'm able to log into my app, the data is not being saved to the database. As a result, I'm considering the possibility of switching to a self-hosted mini-server, such as a Raspberry Pi, to handle my data processing in the future.
+Additionally, I've noticed that the Clarifai API is running quite unreliably, which is affecting the performance of my app. I'm working on resolving these issues.*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## App explanation
 
-## Available Scripts
+- The Navigation, Logo, Signin, ImageLinkForm, Rank, Register and FaceRecognitation components are imported and used.
 
-In the project directory, you can run:
+- The "initialState" constant is defined to set the initial state of the app.
 
-### `npm start`
+- The "App" class is defined and inherits from the "Component" class of React.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- A constructor is defined to set the initial state of the app to the "initialState".
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Methods like "updateUser", "calculateFaceLocation", "displayFaceBox", "onInputChange", "onButtonSubmit" and "onRouteChange" are defined to update or change the state of the app.
 
-### `npm test`
+- The "render" method is defined to create and return the React elements that are displayed on the web page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The "signin" or the "register" component is added to the "app" component, depending on which "route" state of the app is set.
