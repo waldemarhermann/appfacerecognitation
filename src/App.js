@@ -44,8 +44,6 @@ class App extends Component {
       }
     })
   }
- 
-//this is a test for test-commiting
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
