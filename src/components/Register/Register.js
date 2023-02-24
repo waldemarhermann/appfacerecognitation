@@ -23,7 +23,7 @@ class Register extends Component {
     }
 
     onSubmitSignIn = () => {
-        fetch('https://faceapi-691r.onrender.com/register', {
+        fetch('http://localhost:3001/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -34,7 +34,7 @@ class Register extends Component {
         })
             .then(response => response.json())
             .then(user => {
-                if (user.id) {
+                if (user) {
                     this.props.updateUser(user)
                     this.props.onRouteChange('home');
                 }
