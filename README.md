@@ -3,6 +3,8 @@
  
 *Finally the app is working. The backend server is deployed on Heroku and the frontend code on Github-pages*
 
+Try it [out](https://waldemarhermann.github.io/appfacerecognitation/)
+
 
 ## App explanation
 
